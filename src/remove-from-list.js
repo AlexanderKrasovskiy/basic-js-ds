@@ -27,6 +27,14 @@ function removeKFromList( l, k ) {
   let prev = null;
   let current = l;
   
+  // last match
+  if (current.value === k && !current.next) {
+    return prev;
+  };
+
+  // RUN TESTs !!!
+  // npm run test ./test/remove-from-list.test.js
+
   // no match
   if (!current.next) return current;
 
@@ -45,8 +53,6 @@ function removeKFromList( l, k ) {
     prev.next = current.next;
     return removeKFromList(current.next, k);
   }
-
-  // last match - not needed
 }
 
 module.exports = {
